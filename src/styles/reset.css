@@ -1,0 +1,84 @@
+/* 1. Глобальный box-sizing для всех элементов и псевдоэлементов */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* 2. Сброс дефолтных отступов у всех базовых элементов */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* 3. Настройка HTML и Body для плавной работы и адаптивности */
+html {
+	/* Включаем плавную прокрутку по якорям */
+	scroll-behavior: smooth;
+	/* Защита от прыжков верстки при появлении скроллбара */
+	scrollbar-gutter: stable;
+}
+
+body {
+	/* Гарантирует правильный расчет высоты на мобилках с учетом динамических панелей браузера */
+	min-height: 100dvh;
+	/* Улучшает рендеринг и читаемость шрифтов */
+	text-rendering: optimizeSpeed;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.5;
+	/* Современный системный стек шрифтов (включая новые ОС) */
+	/* font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		sans-serif; */
+}
+
+/* 4. Защита медиа-контента от деформации и выходов за границы */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto; /* Важно для работы aspect-ratio */
+}
+
+/* 5. Наследование шрифтов для элементов форм (по умолчанию они не наследуют) */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* 6. Удобные дефолты для интерактивных элементов */
+button,
+select {
+	cursor: pointer;
+}
+
+/* 7. Предотвращение поломки интерфейса из-за слишком длинных слов/ссылок */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+/* 8. Изоляция для встроенных виджетов (на будущее для крупных проектов) */
+#root,
+#__next,
+#app {
+	isolation: isolate;
+}

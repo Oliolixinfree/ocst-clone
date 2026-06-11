@@ -1,0 +1,118 @@
+---
+
+---
+
+<header>
+	<div class="logo">
+		<a href="/">OCST</a>
+	</div>
+	<nav>
+		<ul class="menu">
+			<li><a href="/about-us">О нас</a></li>	
+			<li><a href="/new">Новинки</a></li>
+			<li class="dropdown-container">
+				<a href="/catalog" class="dropdown-trigger">Каталог</a>
+				<ul class="dropdown-menu">
+					<li><a href="/catalog/sweatshirts">Толстовки</a></li>
+					<li><a href="/catalog/pants">Брюки</a></li>
+					<li><a href="/catalog/jackets">Куртки</a></li>
+					<li><a href="/catalog/tshirts">Футболки</a></li>
+					<li><a href="/catalog/fleece">Флис</a></li>
+					<li><a href="/catalog/shorts">Шорты</a></li>
+					<li><a href="/catalog/accessories">Аксессуары</a></li>
+				</ul>
+			</li>
+			<li><a href="/sale">Sale</a></li>
+		</ul>
+	</nav>
+</header>
+
+<style>
+	.menu {
+		display: flex;
+		gap: 20px;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			font-weight: 500;
+		}
+	}
+	/* Робім кантэйнер адносным, каб падменю пазіцыянавалася ад яго */
+	.dropdown-container {
+		position: relative;
+		/* Дадаем унутраны водступ знізу, каб меню не знікала пры пераводзе курсора */
+		padding-bottom: 10px; 
+		margin-bottom: -10px;
+	}
+
+	/* Пачатковы стан выпадальнага меню (схаванае) */
+	.dropdown-menu {
+		position: absolute;
+		top: 100%; 
+		left: 50%;
+		transform: translateX(-50%) translateY(10px); 
+		background-color: #ffffff;
+		padding: 20px 30px;
+		list-style: none;
+		min-width: 16px;
+		white-space: nowrap; 
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		z-index: 10;
+		
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+	}
+
+	.dropdown-menu li {
+		margin: 8px 0;
+		
+		&:first-child { margin-top: 0; }
+		&:last-child { margin-bottom: 0; }
+	}
+
+	.dropdown-container:hover .dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(-50%) translateY(0); 
+	}
+
+	.dropdown-trigger::after {
+		content: ' ▾';
+		font-size: 18px;
+	}
+
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 30px;
+		margin: 20px 0;
+	}
+
+	.logo {
+		font-size: 32px;
+		font-weight: 900;
+		font-style: italic;
+	}
+
+	.logo  > a {
+		color: initial;
+		text-decoration: none;
+	}
+
+	li > a {
+		text-decoration: none;
+    color: initial; 
+    border-bottom: 2px solid transparent; 
+    padding-bottom: 4px; 
+    transition: border-color 0.2s ease;
+
+    &:hover {
+        border-color: initial;
+    }
+	}
+</style>

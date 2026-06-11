@@ -1,0 +1,54 @@
+---
+import '../styles/reset.css'
+import { Font } from "astro:assets";
+import Header from '../components/Header.astro'
+import Main from '../components/Main.astro'
+import background from '../assets/background.svg';
+import Footer from '../components/Footer.astro'
+
+const { title = "Главная" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<Font cssVariable="--font-exo2" preload />
+	</head>
+	<body>
+		<img id="background" src={background.src} alt="" fetchpriority="high" />
+		<Header />
+		<Main>
+			<slot />
+		</Main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		min-height: 100dvh;
+		display: flex;
+		flex-direction: column;
+		font-family: var(--font-exo2); 
+		font-style: normal;
+		font-size: 18px;
+	}
+
+	#background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		filter: blur(100px);
+	}
+</style>

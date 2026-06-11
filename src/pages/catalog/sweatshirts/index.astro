@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content'
+import Item from '../../../components/Item.astro'
+import ItemsWrapper from '../../../components/ItemsWrapper.astro'
+import Layout from '../../../layouts/Layout.astro'
+
+
+
+// const items = await getCollection('sweatshirts')
+const itemsMd = await getCollection('sweatshirts_md')
+---
+
+<Layout title="Sweatshirts">
+	<h1>Толстовки</h1>
+	<ItemsWrapper>
+		{itemsMd.map(i => <Item item={i} />)}
+	</ItemsWrapper>
+</Layout>
+

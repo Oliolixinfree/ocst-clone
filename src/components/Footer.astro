@@ -1,0 +1,70 @@
+---
+
+---
+
+<footer>
+	<nav>
+		<ul class="menu">
+			<li><a href="/about-shop">О магазине</a></li>	
+			<li><a href="/delivery">Оплата и доставка</a></li>
+			<li><a href="/return">Обмен и возврат</a></li>
+			<li><a href="/documents">Документы</a></li>
+			<li><a href="/contacts">Контакты</a></li>
+		</ul>
+	</nav>
+	<div>
+		<p class="creds"> "АУТКАСТ", УНП 000000000, Республика Беларусь, Минск, 000000, проспект Независимости, дом 00, корпус 0, кабинет 000. Свидетельство 0000000 00.00.00 Минский Горисполком. <br> Дата регистрации интернет-магазина в Торговом реестре РБ: 00.00.00, номер 000000. Режим работы магазина: 11:00 - 20:00 без выходных. Тел.: +375(00)000-00-00. Е-mail: info@ocst-clone.org</p>
+	</div>
+</footer>
+
+<style>
+	footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		padding: 0 30px;
+		margin: 20px 0;
+	}
+
+	.logo {
+		font-size: 32px;
+		font-weight: 900;
+		font-style: italic;
+	}
+
+	.logo  > a:hover {
+		color: black;
+	}
+
+	a {
+		color: black;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+			text-underline-offset: 6px; 
+		}
+	}
+
+	.menu {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 20px;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			font-weight: 500;
+		}
+	}
+
+	.creds {
+		text-align: center;
+		font-weight: 300;
+		font-size: 14px;
+	}
+</style>

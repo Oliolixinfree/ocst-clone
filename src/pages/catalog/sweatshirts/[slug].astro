@@ -1,0 +1,97 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro'
+
+export async function getStaticPaths() {
+	const items = await getCollection('sweatshirts_md');
+	return items.map(item => ({
+		params: { slug: `${item.data.id}-${item.id}` },
+		props: { item },
+	}));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+---
+<Layout title={item.data.title}>
+	<div class="product-page">
+		<div class="product-page-wrapper">
+			<div class="image"></div>
+			<div class="product-content">
+				<h1>{item.data.title}</h1>
+				
+				{item.data.sizes && item.data.sizes.length > 0 && (
+					<div class="size-selector">
+						<label for="size-select">Выберите размер:</label>
+						<select name="size" id="size-select">
+							{item.data.sizes.map((size) => (
+								<option value={size}>{size}</option>
+							))}
+						</select>
+					</div>
+				)}
+
+				<p class="price">{item.data.price} {item.data.currency}</p>
+				<p><strong>Материал:</strong> {item.data.material}</p>
+				<p><strong>Состав:</strong> {item.data.composition}</p>
+				<div class="markdown-body">
+					<Content />
+				</div>
+				<p><strong>Страна производства:</strong> {item.data.country} </p>
+				<p><strong>Производитель:</strong> {item.data.manufacturer}</p>
+			</div>				
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.product-page {
+		margin: 0 auto;
+	}
+
+	.product-page-wrapper {
+		display: flex;
+		justify-content: center;
+		gap: 30px;
+	}
+
+	.product-content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.image {
+		width: 100%;
+		max-width: 560px;        
+		height: auto;         
+		aspect-ratio: 1 / 1; 
+		background-color: lightgray;
+		margin-bottom: 20px;
+	}
+
+	.size-selector {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-bottom: 15px;
+	}
+
+	.size-selector select {
+		padding: 10px;
+		font-size: 16px;
+		border-radius: 4px;
+		border: 1px solid #ccc;
+		max-width: 200px;
+		cursor: pointer;
+	}
+
+	.markdown-body :global(ul) {
+		list-style: none; 
+		padding: 0;       
+		margin: 0;
+	}
+
+	.markdown-body :global(li) {
+		margin-bottom: 8px; 
+	}
+</style>

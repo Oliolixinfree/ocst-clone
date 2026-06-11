@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+	item: CollectionEntry<'sweatshirts_md'>
+}
+const {item} = Astro.props
+---
+
+<div class="container">
+	<a class="link" href={`/catalog/sweatshirts/${item.data.id}-${item.id}`}  >
+		<div class="image"></div>
+		<div class="title">{item.data.title}</div>
+		<div class="description">{item.data.description}</div>
+		<div class="price">{item.data.price} {item.data.currency} {item.data.isOnSale}</div>
+	</a>
+</div>
+
+<style>
+	.link {
+		text-decoration: none;
+		color: initial;
+		width: 100%;
+	}
+
+	.image {
+    width: 100%;          /* Растягивается на всю ширину карточки .container */
+    height: auto;         /* Высота подстроится сама */
+    aspect-ratio: 1 / 1;  /* Гарантирует, что блок всегда будет квадратным */
+    background-color: lightgray;
+		margin-bottom: 20px;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.title {
+		font-weight: 600;
+	}
+
+	.description {
+		font-weight: 300;
+		font-size: 16px;
+	}
+</style>
