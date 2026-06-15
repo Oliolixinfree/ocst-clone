@@ -6,7 +6,7 @@ import Main from '../components/Main.astro'
 import background from '../assets/background.svg';
 import Footer from '../components/Footer.astro'
 
-const { title = "Главная" } = Astro.props;
+const { title = "Галоўная" } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -20,7 +20,7 @@ const { title = "Главная" } = Astro.props;
 		<Font cssVariable="--font-exo2" preload />
 	</head>
 	<body>
-		<img id="background" src={background.src} alt="" fetchpriority="high" />
+		<!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
 		<Header />
 		<Main>
 			<slot />

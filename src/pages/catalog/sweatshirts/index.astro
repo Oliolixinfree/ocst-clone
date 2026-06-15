@@ -10,8 +10,8 @@ import Layout from '../../../layouts/Layout.astro'
 const itemsMd = await getCollection('sweatshirts_md')
 ---
 
-<Layout title="Sweatshirts">
-	<h1>Толстовки</h1>
+<Layout title="Талстоўки">
+	<h1>Талстоўки</h1>
 	<ItemsWrapper>
 		{itemsMd.map(i => <Item item={i} />)}
 	</ItemsWrapper>
