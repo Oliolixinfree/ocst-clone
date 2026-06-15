@@ -5,7 +5,15 @@ export const productSchema = z.object({
 	description: z.string(),
 	price: z.number(),
 	currency: z.string(),
-	category: z.enum(['sweatshirts', 'tshirts', 'shorts', 'accessories']),
+	category: z.enum([
+		'sweatshirts',
+		'tshirts',
+		'shorts',
+		'accessories',
+		'pants',
+		'jackets',
+		'fleece'
+	]),
 	isOnSale: z.boolean().default(false),
 	isNew: z.boolean().default(false),
 	sizes: z.array(z.string()),
