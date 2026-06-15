@@ -29,5 +29,21 @@ const sweatshirts_md = defineCollection({
 		manufacturer: z.string()
 	})
 })
+const newItems = defineCollection({
+	loader: glob({ base: 'src/shared/content/new', pattern: '*.md' }),
+	schema: z.object({
+		id: z.string(),
+		title: z.string(),
+		description: z.string(),
+		price: z.number(),
+		currency: z.string(),
+		isOnSale: z.boolean(),
+		sizes: z.array(z.string()),
+		material: z.string(),
+		composition: z.string(),
+		country: z.string(),
+		manufacturer: z.string()
+	})
+})
 
-export const collections = { sweatshirts, sweatshirts_md }
+export const collections = { sweatshirts, sweatshirts_md, newItems }

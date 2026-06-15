@@ -22,7 +22,7 @@ const { Content } = await render(item);
 				
 				{item.data.sizes && item.data.sizes.length > 0 && (
 					<div class="size-selector">
-						<label for="size-select">Выберите размер:</label>
+						<label for="size-select">Абярыце памер:</label>
 						<select name="size" id="size-select">
 							{item.data.sizes.map((size) => (
 								<option value={size}>{size}</option>
@@ -32,13 +32,13 @@ const { Content } = await render(item);
 				)}
 
 				<p class="price">{item.data.price} {item.data.currency}</p>
-				<p><strong>Материал:</strong> {item.data.material}</p>
-				<p><strong>Состав:</strong> {item.data.composition}</p>
+				<p><strong>Матэрыял:</strong> {item.data.material}</p>
+				<p><strong>Склад:</strong> {item.data.composition}</p>
 				<div class="markdown-body">
 					<Content />
 				</div>
-				<p><strong>Страна производства:</strong> {item.data.country} </p>
-				<p><strong>Производитель:</strong> {item.data.manufacturer}</p>
+				<p><strong>Краіна вытворчасці:</strong> {item.data.country} </p>
+				<p><strong>Вытворэц:</strong> {item.data.manufacturer}</p>
 			</div>				
 		</div>
 	</div>
@@ -77,10 +77,10 @@ const { Content } = await render(item);
 	}
 
 	.size-selector select {
-		padding: 10px;
+		padding: 8px;
 		font-size: 16px;
 		border-radius: 4px;
-		border: 1px solid #ccc;
+		border: 1px solid transparent;
 		max-width: 200px;
 		cursor: pointer;
 	}

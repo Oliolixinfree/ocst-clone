@@ -1,7 +1,16 @@
 ---
+import { getCollection } from 'astro:content'
+import Item from '../../components/Item.astro'
+import ItemsWrapper from '../../components/ItemsWrapper.astro'
 import Layout from '../../layouts/Layout.astro';
+
+const itemsMd = await getCollection('newItems')
 ---
 
 <Layout title="Навінкі">
 	<h1>Навінкі</h1>
+
+	<ItemsWrapper>
+		{itemsMd.map(i => <Item item={i} />)}
+	</ItemsWrapper>
 </Layout>
