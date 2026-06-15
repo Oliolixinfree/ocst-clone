@@ -1,10 +1,11 @@
 ---
-id: '1'
 title: 'Паўзіпка Beer Хакі'
 description: 'Талстоўка на маланкі без каптура'
 price: 169
 currency: 'BYN'
-isOnSale: false
+category: 'sweatshirts'
+isOnSale: true
+isNew: false
 sizes: ['S', 'M', 'L', 'XL']
 material: 'Пяцельчаты футэр без начосу 320 грам/м2'
 composition: '88% бавоўна, 12% поліэстэр'

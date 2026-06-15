@@ -7,13 +7,15 @@ import Layout from '../../../layouts/Layout.astro'
 
 
 // const items = await getCollection('sweatshirts')
-const itemsMd = await getCollection('sweatshirts_md')
+const all = await getCollection('products')
+
+const sweatshirts = all.filter(p => p.data.category === 'sweatshirts')
 ---
 
 <Layout title="Талстоўки">
 	<h1>Талстоўки</h1>
 	<ItemsWrapper>
-		{itemsMd.map(i => <Item item={i} />)}
+		{sweatshirts.map(i => <Item item={i} />)}
 	</ItemsWrapper>
 </Layout>
 

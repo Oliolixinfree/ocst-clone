@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<div class="container">
+	<a class="container" href="/new">
 		<div class="content">
 			<h1>Fast Friends Beer Club</h1>
 			<p>summer drop</p>
 		</div>
-	</div>
+	</a>
 </Layout>
 
 <style>
@@ -31,6 +31,8 @@ import Layout from '../layouts/Layout.astro';
 		overflow: hidden; 
 
 		transition: transform 0.4s ease;
+
+		text-decoration: none;
 	}
 
 	.container::before {

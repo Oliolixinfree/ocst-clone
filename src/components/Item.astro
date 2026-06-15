@@ -2,18 +2,23 @@
 import type { CollectionEntry } from 'astro:content'
 
 interface Props {
-	item: CollectionEntry<'sweatshirts_md' | 'newItems'>
+  item: CollectionEntry<'products'>
 }
-const {item} = Astro.props
+
+const { item } = Astro.props
+const { title, description, price, currency, isOnSale, category } = item.data
 ---
 
 <div class="container">
-	<a class="link" href={`/catalog/sweatshirts/${item.data.id}-${item.id}`}  >
-		<div class="image"></div>
-		<div class="title">{item.data.title}</div>
-		<div class="description">{item.data.description}</div>
-		<div class="price">{item.data.price} {item.data.currency} {item.data.isOnSale}</div>
-	</a>
+  <a class="link" href={`/catalog/${category}/${item.id}`}>
+    <div class="image"></div>
+    <div class="title">{title}</div>
+    <div class="description">{description}</div>
+    <div class="price">
+      {price} {currency}
+    </div>
+		{isOnSale && <span class="badge">Sale</span>}
+  </a>
 </div>
 
 <style>
@@ -21,12 +26,31 @@ const {item} = Astro.props
 		text-decoration: none;
 		color: initial;
 		width: 100%;
+		position: relative;
+		
+	}
+
+	.badge {
+		position: absolute;
+		background-color: red;
+		top: 5px;
+		right: 5px;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-size: 14px;
+		font-weight: 600;
+		text-transform: uppercase;
 	}
 
 	.image {
-    width: 100%;          /* Растягивается на всю ширину карточки .container */
-    height: auto;         /* Высота подстроится сама */
-    aspect-ratio: 1 / 1;  /* Гарантирует, что блок всегда будет квадратным */
+    width: 100%;          
+    height: auto;         
+    aspect-ratio: 1 / 1;  
     background-color: lightgray;
 		margin-bottom: 20px;
 	}
