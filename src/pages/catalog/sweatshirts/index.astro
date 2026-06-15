@@ -4,11 +4,7 @@ import Item from '../../../components/Item.astro'
 import ItemsWrapper from '../../../components/ItemsWrapper.astro'
 import Layout from '../../../layouts/Layout.astro'
 
-
-
-// const items = await getCollection('sweatshirts')
 const all = await getCollection('products')
-
 const sweatshirts = all.filter(p => p.data.category === 'sweatshirts')
 ---
 

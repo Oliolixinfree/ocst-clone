@@ -40,8 +40,15 @@
 
 	ul {
 		display: flex;
+		flex-direction: column;
 		place-items: center;
-		gap: 20px;
+		gap: 10px;
+
+		@media (width >= 640px) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 20px;
+		}
 	}
 
 	ul > li {
@@ -64,6 +71,10 @@
 	.creds {
 		text-align: center;
 		font-weight: 300;
-		font-size: 14px;
+		font-size: 12px;
+
+		@media (width >= 640px) {
+			font-size: 14px;
+		}
 	}
 </style>

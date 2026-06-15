@@ -1,7 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content'
+import Item from '../../components/Item.astro'
+import ItemsWrapper from '../../components/ItemsWrapper.astro'
+import Layout from '../../layouts/Layout.astro'
+
+const all = await getCollection('products')
+const saleItems   = all.filter(p => p.data.isOnSale)
 ---
+
+
 
 <Layout title="Зніжкі">
 	<h1>Зніжкі</h1>
+	<ItemsWrapper>
+		{saleItems.map(i => <Item item={i} />)}
+	</ItemsWrapper>
 </Layout>

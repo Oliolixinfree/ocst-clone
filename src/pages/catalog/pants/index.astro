@@ -1,7 +1,16 @@
 ---
+import { getCollection } from 'astro:content'
 import Layout from '../../../layouts/Layout.astro';
+import ItemsWrapper from '../../../components/ItemsWrapper.astro'
+import Item from '../../../components/Item.astro'
+
+const all = await getCollection('products')
+const sweatshirts = all.filter(p => p.data.category === 'pants')
 ---
 
 <Layout title="Штаны">
 	<h1>Штаны</h1>
+	<ItemsWrapper>
+		{sweatshirts.map(i => <Item item={i} />)}
+	</ItemsWrapper>
 </Layout>

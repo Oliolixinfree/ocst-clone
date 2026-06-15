@@ -52,7 +52,11 @@ const { title, description, price, currency, isOnSale, category } = item.data
     height: auto;         
     aspect-ratio: 1 / 1;  
     background-color: lightgray;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
+
+		@media (width >= 640px) {
+			margin-bottom: 20px;
+		}
 	}
 
 	.container {
