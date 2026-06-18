@@ -10,6 +10,7 @@ const sweatshirts = all.filter(p => p.data.category === 'pants')
 
 <Layout title="Штаны">
 	<h1>Штаны</h1>
+	
 	<ItemsWrapper>
 		{sweatshirts.map(i => <Item item={i} />)}
 	</ItemsWrapper>
